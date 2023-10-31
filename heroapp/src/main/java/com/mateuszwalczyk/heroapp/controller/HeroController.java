@@ -4,6 +4,7 @@ import com.mateuszwalczyk.heroapp.model.Hero;
 import com.mateuszwalczyk.heroapp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.event.EventListener;
 import org.springframework.web.bind.annotation.*;
 
@@ -16,8 +17,8 @@ public class HeroController {
     private HeroRepository heroRepository;
 
     @PostMapping("/hero")
-    Hero newHero(@RequestBody Hero newHero){
-        return heroRepository.save(newHero);
+    Hero hero(@RequestBody Hero hero){
+        return heroRepository.save(hero);
     }
 
     @GetMapping("/heroes")
@@ -27,8 +28,8 @@ public class HeroController {
 
     //Create example hero with application start
     @EventListener(ApplicationReadyEvent.class)
-    public void exampleHero(){
-        newHero(new Hero("Examp"));
+    public void addHero(){
+        hero(new Hero("Examp"));
     }
 
 }
