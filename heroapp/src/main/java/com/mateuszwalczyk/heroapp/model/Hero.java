@@ -1,14 +1,23 @@
 package com.mateuszwalczyk.heroapp.model;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+
+@Entity
 public class Hero {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String name;
     private int level;
     private int gold;
 
     public Hero(){
-
+        this.level = 1;
+        this.gold = 0;
     }
 
     public Hero(String name, int level, int gold){
