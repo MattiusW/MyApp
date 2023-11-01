@@ -33,6 +33,14 @@ public class HeroController {
                 .orElseThrow(() -> new HeroNotFoundException(id));
     }
 
+    @PutMapping("/hero/{id}")
+    Hero updateHero(@RequestBody Hero newHero, @PathVariable Long id){
+        return heroRepository.findById(id).map(hero -> {
+            hero.setName(newHero.getName());
+            return heroRepository.save(hero);
+        }).orElseThrow(() -> new HeroNotFoundException(id));
+    }
+
 
     //Create example hero with application start
     @EventListener(ApplicationReadyEvent.class)
