@@ -1,5 +1,6 @@
 package com.mateuszwalczyk.heroapp.controller;
 
+import com.mateuszwalczyk.heroapp.exception.HeroNotFoundException;
 import com.mateuszwalczyk.heroapp.model.Hero;
 import com.mateuszwalczyk.heroapp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,6 +26,13 @@ public class HeroController {
     List<Hero> getAllHeroes(){
         return heroRepository.findAll();
     }
+
+    @GetMapping("/hero/{id}")
+    Hero getHeroById(@PathVariable Long id){
+        return heroRepository.findById(id)
+                .orElseThrow(() -> new HeroNotFoundException(id));
+    }
+
 
     //Create example hero with application start
     @EventListener(ApplicationReadyEvent.class)
