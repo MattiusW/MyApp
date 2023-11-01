@@ -16,8 +16,8 @@ export default function Home() {
   return (
     <div className="container">
       <div className="py-4">
-        <table className="table border shadow">
-          <thead>
+        <table className="table border light">
+          <thead className="table-dark">
             <tr>
               <th scope="col">Number</th>
               <th scope="col">Hero</th>
@@ -26,7 +26,7 @@ export default function Home() {
               <th scope="col">Action</th>
             </tr>
           </thead>
-          <tbody>
+          <tbody className="table-light">
             {heroes.map((hero, index) => (
               <tr>
                 <th scope="row" key={index}>
@@ -35,6 +35,11 @@ export default function Home() {
                 <td>{hero.name}</td>
                 <td>{hero.level}</td>
                 <td>{hero.gold}</td>
+                <td>
+                  <button className="btn btn-outline-info mx-2">View</button>
+                  <button className="btn btn-primary mx-2">Edit</button>
+                  <button className="btn btn-danger mx-2">Delete</button>
+                </td>
               </tr>
             ))}
           </tbody>

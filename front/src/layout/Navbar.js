@@ -19,7 +19,7 @@ export default function Navbar() {
           >
             <snap className="navbar-toggler-icon"></snap>
           </button>
-          <button className="btn btn-outline-primary">Add Hero</button>
+          <button className="btn btn-success">Add Hero</button>
         </div>
       </nav>
     </div>
