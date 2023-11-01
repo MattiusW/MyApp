@@ -44,7 +44,6 @@ export default function Home() {
                 <td>{hero.level}</td>
                 <td>{hero.gold}</td>
                 <td>
-                  <button className="btn btn-outline-info mx-2">View</button>
                   <Link className="btn btn-primary mx-2"
                     to={`/edithero/${hero.id}`}
                   >Edit</Link>

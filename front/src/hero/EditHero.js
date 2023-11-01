@@ -46,7 +46,7 @@ export default function EditHero() {
             <input
               type={"text"}
               className="form-control"
-              placeholder="Enter your name"
+              placeholder="Enter hero name"
               name="name"
               value={name}
               onChange={(e) => onInputChange(e)}
