@@ -4,6 +4,7 @@ import Navbar from "./layout/Navbar";
 import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import AddHero from "./hero/AddHero";
+import EditHero from "./hero/EditHero";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<Home />} />
           <Route exact path="/addhero" element={<AddHero/>} />
+          <Route exact path="/edithero/:id" element={<EditHero/>}/>
         </Routes>
       </Router>
     </div>
