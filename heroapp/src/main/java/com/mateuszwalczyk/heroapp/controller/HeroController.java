@@ -41,11 +41,19 @@ public class HeroController {
         }).orElseThrow(() -> new HeroNotFoundException(id));
     }
 
+    @DeleteMapping("/hero/{id}")
+    String deleteUser(@PathVariable Long id){
+        if(!heroRepository.existsById(id)){
+            throw new HeroNotFoundException(id);
+        }
+        heroRepository.deleteById(id);
+        return "Hero with id " + id + " has been deleted success.";
+    }
 
     //Create example hero with application start
     @EventListener(ApplicationReadyEvent.class)
     public void addHero(){
-        hero(new Hero("Examp"));
+        hero(new Hero("Example"));
     }
 
 }
