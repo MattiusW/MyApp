@@ -21,7 +21,7 @@ import java.util.List;
 @Validated
 public class HeroController {
 
-    private static final int MAX_HEROES = 5;
+    private static final int MAX_HEROES = 3;
 
 
     @Autowired
@@ -68,7 +68,7 @@ public class HeroController {
     //Create example hero with application start
     @EventListener(ApplicationReadyEvent.class)
     public void addHero(){
-        hero(new Hero("Example"));
+        hero(new Hero("Williamie Wallace"));
     }
 
 }
