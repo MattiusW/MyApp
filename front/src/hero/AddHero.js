@@ -23,6 +23,11 @@ export default function AddHero() {
         alert("Hero name cannot be empty!");
         return;
       }
+      if(!name.trim().match(/^[a-zA-Z\s]+$/)){
+        alert("Hero name can only contain letter and spaces!");
+        return;
+      }
+
       await axios.post("http://localhost:8080/hero", hero)
       navigate("/");
     }

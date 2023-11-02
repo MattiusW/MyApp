@@ -1,7 +1,11 @@
 package com.mateuszwalczyk.heroapp.model;
 
 import jakarta.persistence.*;
+import jdk.jfr.DataAmount;
 
+import javax.validation.Valid;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
 @Entity
@@ -12,12 +16,8 @@ public class Hero {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "Name")
-    @Size(min = 1, max = 20) //validation name
     private String name;
-    @Column(name ="Level")
     private int level;
-    @Column(name = "Gold")
     private int gold;
 
     public Hero(){

@@ -6,22 +6,35 @@ import com.mateuszwalczyk.heroapp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
-import org.springframework.validation.BindingResult;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Controller;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.List;
 
+@Controller
 @RestController
 @CrossOrigin("http://localhost:3000")
+@Validated
 public class HeroController {
+
+    private static final int MAX_HEROES = 5;
+
 
     @Autowired
     private HeroRepository heroRepository;
 
+    //Post only five hero
     @PostMapping("/hero")
-    Hero hero(@RequestBody Hero hero){
-        return heroRepository.save(hero);
+    ResponseEntity<Object> hero(@RequestBody @Valid Hero hero){
+        if(heroRepository.count() >= MAX_HEROES){
+            return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Too many heroes!");
+        }
+
+        return ResponseEntity.ok(heroRepository.save(hero));
     }
 
     @GetMapping("/heroes")
@@ -58,15 +71,4 @@ public class HeroController {
         hero(new Hero("Example"));
     }
 
-
-    //-----------------I've made additional own functions---------------------------
-    //------------------------------------------------------------------------------
-
-    //Handle error empty name
-    Hero hero(@Valid @RequestBody Hero hero, BindingResult bindingResult){
-        if(bindingResult.hasErrors()){
-            throw new IllegalArgumentException("Invalid input data take 1 between 20 sing");
-        }
-        return heroRepository.save(hero);
-    }
 }
