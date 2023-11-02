@@ -1,7 +1,24 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import axios from 'axios';
+import React, { useEffect, useState } from 'react'
+import { Link, useParams } from 'react-router-dom'
 
 export default function ViewHero () {
+
+    const [hero, setHero] = useState({
+        name:""
+    });
+
+    const {id} = useParams();
+
+    useEffect(()=>{
+        loadHero();
+    },[]);
+
+    const loadHero = async () => {
+        const result = await axios.get(`http://localhost:8080/hero/${id}`);
+        setHero(result.data);
+    }
+
   return (
     <div className='container'>
       <div className='row'>
@@ -10,10 +27,11 @@ export default function ViewHero () {
 
           <div className='card'>
             <div className='card-header'>
-              Details of user id:
+              Number of create: {hero.id}
               <ul className='list-group list-group-flush'>
                 <li className='list-group-item'>
-                  <b>Name</b>
+                  <b>Name: </b>
+                  {hero.name}
                 </li>
 
                 <li className='list-group-item'>
