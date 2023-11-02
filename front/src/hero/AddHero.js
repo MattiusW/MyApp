@@ -16,8 +16,13 @@ export default function AddHero() {
       setHero({...hero, [e.target.name]:e.target.value})
     }
 
+    //Handle error if name is empty
     const onSubmit= async (e)=>{
       e.preventDefault();
+      if (name.trim().length === 0){
+        alert("Hero name cannot be empty!");
+        return;
+      }
       await axios.post("http://localhost:8080/hero", hero)
       navigate("/");
     }
