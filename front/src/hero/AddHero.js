@@ -27,9 +27,20 @@ export default function AddHero() {
         alert("Hero name can only contain letter and spaces!");
         return;
       }
+      
+      try{
+        await axios.post("http://localhost:8080/hero", hero);
+        navigate("/");
+      }
+      catch(error){
+        if(error.response && error.response.status === 400){
+          alert("Too many heroes! You can only have a three.");
+        }
+        else{
+          console.error(error.message);
+        }
+      }
 
-      await axios.post("http://localhost:8080/hero", hero)
-      navigate("/");
     }
 
   return (
