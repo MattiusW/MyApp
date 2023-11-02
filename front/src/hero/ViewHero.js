@@ -5,7 +5,9 @@ import { Link, useParams } from 'react-router-dom'
 export default function ViewHero () {
 
     const [hero, setHero] = useState({
-        name:""
+        name:"",
+        level:"",
+        gold:""
     });
 
     const {id} = useParams();
@@ -35,11 +37,13 @@ export default function ViewHero () {
                 </li>
 
                 <li className='list-group-item'>
-                  <b>Level</b>
+                  <b>Level: </b>
+                  {hero.level}
                 </li>
 
                 <li className='list-group-item'>
-                  <b>Gold</b>
+                  <b>Gold: </b>
+                  {hero.gold}
                 </li>
               </ul>
             </div>
