@@ -1,55 +1,69 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
-import { Link, useParams } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import axios from 'axios'
+import { Link, useParams } from 'react-router-dom'
 
-export default function Home() {
-  const [heroes, setHeroes] = useState([]);
+export default function Home () {
+  const [heroes, setHeroes] = useState([])
 
-  const {id}=useParams()
+  const { id } = useParams()
 
   useEffect(() => {
-    loadHeroes();
-  }, []);
+    loadHeroes()
+  }, [])
 
   const loadHeroes = async () => {
-    const result = await axios.get("http://localhost:8080/heroes");
-    setHeroes(result.data);
-  };
+    const result = await axios.get('http://localhost:8080/heroes')
+    setHeroes(result.data)
+  }
 
-  const deleteHero = async (id)=>{
-    await axios.delete(`http://localhost:8080/hero/${id}`);
-    loadHeroes();
-  };
+  const deleteHero = async id => {
+    await axios.delete(`http://localhost:8080/hero/${id}`)
+    loadHeroes()
+  }
 
   return (
-    <div className="container">
-      <div className="py-4">
-        <table className="table border light">
-          <thead className="table-dark">
+    <div className='container'>
+      <div className='py-4'>
+        <table className='table border light'>
+          <thead className='table-dark'>
             <tr>
-              <th scope="col">Number</th>
-              <th scope="col">Hero</th>
-              <th scope="col">Level</th>
-              <th scope="col">Gold</th>
-              <th scope="col">Action</th>
+              <th scope='col'>Number</th>
+              <th scope='col'>Hero</th>
+              <th scope='col'>Level</th>
+              <th scope='col'>Gold</th>
+              <th scope='col'>Action</th>
             </tr>
           </thead>
-          <tbody className="table-light">
+          <tbody className='table-light'>
             {heroes.map((hero, index) => (
               <tr>
-                <th scope="row" key={index}>
+                <th scope='row' key={index}>
                   {index + 1}
                 </th>
                 <td>{hero.name}</td>
                 <td>{hero.level}</td>
                 <td>{hero.gold}</td>
                 <td>
-                  <Link className="btn btn-primary mx-2"
+                  <Link
+                    className='btn btn-info mx-2'
+                    to={`/viewhero/${hero.id}`}
+                  >
+                    View
+                  </Link>
+
+                  <Link
+                    className='btn btn-primary mx-2'
                     to={`/edithero/${hero.id}`}
-                  >Edit</Link>
-                  <button className="btn btn-danger mx-2"
+                  >
+                    Edit
+                  </Link>
+
+                  <button
+                    className='btn btn-danger mx-2'
                     onClick={() => deleteHero(hero.id)}
-                  >Delete</button>
+                  >
+                    Delete
+                  </button>
                 </td>
               </tr>
             ))}
@@ -57,5 +71,5 @@ export default function Home() {
         </table>
       </div>
     </div>
-  );
+  )
 }
