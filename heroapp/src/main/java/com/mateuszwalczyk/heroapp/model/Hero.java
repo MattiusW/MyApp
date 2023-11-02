@@ -2,6 +2,8 @@ package com.mateuszwalczyk.heroapp.model;
 
 import jakarta.persistence.*;
 
+import javax.validation.constraints.Size;
+
 @Entity
 @Table(name = "Hero")
 public class Hero {
@@ -11,6 +13,7 @@ public class Hero {
     private Long id;
 
     @Column(name = "Name")
+    @Size(min = 1, max = 20) //validation name
     private String name;
     @Column(name ="Level")
     private int level;

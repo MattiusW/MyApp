@@ -6,8 +6,10 @@ import com.mateuszwalczyk.heroapp.repository.HeroRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.event.EventListener;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @RestController
@@ -56,4 +58,15 @@ public class HeroController {
         hero(new Hero("Example"));
     }
 
+
+    //-----------------I've made additional own functions---------------------------
+    //------------------------------------------------------------------------------
+
+    //Handle error empty name
+    Hero hero(@Valid @RequestBody Hero hero, BindingResult bindingResult){
+        if(bindingResult.hasErrors()){
+            throw new IllegalArgumentException("Invalid input data take 1 between 20 sing");
+        }
+        return heroRepository.save(hero);
+    }
 }
