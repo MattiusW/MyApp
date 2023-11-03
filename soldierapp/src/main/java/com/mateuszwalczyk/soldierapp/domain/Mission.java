@@ -1,11 +1,15 @@
 package com.mateuszwalczyk.soldierapp.domain;
 
+import org.springframework.stereotype.Component;
+
+@Component
 public class Mission {
 
     private String description;
 
-    public Mission(String description){
-        this.description = description;
+
+    public Mission(){
+        this.description = "Example Mission";
     }
 
     @Override

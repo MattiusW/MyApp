@@ -13,11 +13,17 @@ public class Barrack {
     @Value("${my.barrack.name}")
     private String name;
 
-    @Autowired
+
     private Soldier soldier;
 
-    public Barrack(){
+    @Autowired
+    public Barrack(Soldier soldier){
+        this.soldier = soldier;
+    }
 
+    Barrack(String name, Soldier soldier){
+        this.name = name;
+        this.soldier = soldier;
     }
 
     @PostConstruct

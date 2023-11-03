@@ -12,6 +12,10 @@ public class Starter implements CommandLineRunner {
 
     @Autowired
     Barrack barrack;
+    @Autowired
+    Mission mission;
+    @Autowired
+    Soldier soldier;
 
     @Override
     public void run(String... args) throws Exception{
