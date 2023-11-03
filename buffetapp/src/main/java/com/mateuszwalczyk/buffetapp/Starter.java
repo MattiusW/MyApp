@@ -8,10 +8,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class Starter implements CommandLineRunner {
 
-    @Autowired
-    Menu menu;
 
     public void run(String... args) throws Exception{
+        Menu menu = new Menu(1L, "Fish");
         System.out.println(menu);
     }
 }

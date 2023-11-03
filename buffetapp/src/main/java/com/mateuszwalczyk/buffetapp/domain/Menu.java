@@ -1,23 +1,17 @@
 package com.mateuszwalczyk.buffetapp.domain;
 
-import com.fasterxml.jackson.databind.introspect.TypeResolutionContext;
-import com.mateuszwalczyk.buffetapp.repository.MenuRepository;
-import org.springframework.beans.factory.annotation.Autowired;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
 import org.springframework.stereotype.Component;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
-import org.springframework.web.bind.annotation.RestControllerAdvice;
 
-import java.awt.*;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Optional;
-
-@RestController
 @Component
+@Entity
 public class Menu {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private String dish;
 
@@ -26,8 +20,8 @@ public class Menu {
     }
 
     public Menu(Long id, String dish){
-        this.dish = dish;
         this.id = id;
+        this.dish = dish;
     }
 
     public Long getId(){
@@ -44,6 +38,10 @@ public class Menu {
 
     public void setDish(String dish){
         this.dish = dish;
+    }
+
+    public String toString(){
+        return "| Id: " + this.id + " | Dish: " + this.dish + " |";
     }
 
 }
