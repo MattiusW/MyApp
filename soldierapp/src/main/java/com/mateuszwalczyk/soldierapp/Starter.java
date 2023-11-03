@@ -5,17 +5,15 @@ import com.mateuszwalczyk.soldierapp.domain.Mission;
 import com.mateuszwalczyk.soldierapp.domain.Soldier;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Component;
 
 @Component
+@ImportResource("classpath:config/spring-config.xml")
 public class Starter implements CommandLineRunner {
 
     @Autowired
     Barrack barrack;
-    @Autowired
-    Mission mission;
-    @Autowired
-    Soldier soldier;
 
     @Override
     public void run(String... args) throws Exception{
