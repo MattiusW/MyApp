@@ -9,7 +9,6 @@ import org.springframework.context.annotation.ImportResource;
 import org.springframework.stereotype.Component;
 
 @Component
-@ImportResource("classpath:config/spring-config.xml")
 public class Starter implements CommandLineRunner {
 
     @Autowired

@@ -7,14 +7,12 @@
             http://www.springframework.org/schema/context
             http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <context:component-scan base-package="com.mateuszwalczyk.soldierapp"/>
 
-    <bean id="mission" class="com.mateuszwalczyk.soldierapp.domain.Mission"/>
+    <context:property-placeholder location="classpath:barrack.properties"/>
 
-    <bean id="soldier" class="com.mateuszwalczyk.soldierapp.domain.Soldier">
-        <constructor-arg index="0" value="VanDame"/>
-        <constructor-arg index="1" value="27"/>
-        <property name="mission" ref="mission"/>
+    <bean id="barrack" class="com.mateuszwalczyk.soldierapp.domain.Barrack" init-method="build" destroy-method="tearDown">
+        <constructor-arg index="0" ref="soldier"/>
+        <property name="name" value="${my.barrack.name:New Barrack}"/>
     </bean>
 
 
