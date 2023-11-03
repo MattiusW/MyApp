@@ -4,9 +4,7 @@ import jakarta.persistence.*;
 import jdk.jfr.DataAmount;
 
 import javax.validation.Valid;
-import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
-import javax.validation.constraints.Size;
+import javax.validation.constraints.*;
 
 @Entity
 @Table(name = "Hero")
@@ -16,6 +14,9 @@ public class Hero {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotNull
+    @Min(2)
+    @Max(12)
     private String name;
     private int level;
     private int gold;
