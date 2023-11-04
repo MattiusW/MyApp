@@ -9,17 +9,17 @@ import jakarta.validation.constraints.Size;
 import org.springframework.stereotype.Component;
 
 @Component
-@Entity
+//@Entity
 public class Menu {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+//    @Id
+//    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    @NotNull
-    @Size(min = 1, max = 12)
+//    @NotNull
+//    @Size(min = 1, max = 12)
     private String dish;
 
-    @NotNull
+//    @NotNull
     private double price;
 
     public Menu(){
