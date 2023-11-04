@@ -7,7 +7,9 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 @Component
@@ -29,6 +31,17 @@ public class Barrack {
         soldiers.put(name, new Soldier(name, age));
     }
 
+    public Collection<Soldier> getAllSoldiers(String name){
+        return soldiers.values();
+    }
+
+    public Soldier getSoldier(String name){
+        return soldiers.get(name);
+    }
+
+    public void deleteSoldier(String name){
+        soldiers.remove(name);
+    }
 
     public void build(){
         System.out.println("Build barrack: " + name);
