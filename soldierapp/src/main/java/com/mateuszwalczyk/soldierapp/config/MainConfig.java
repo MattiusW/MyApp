@@ -14,16 +14,5 @@ import org.springframework.context.annotation.PropertySource;
 //@ImportResource("classpath:config/barrack-config.xml")
 public class MainConfig {
 
-//    @Autowired
-//    Mission mission;
-//
-//    @Bean
-//    public Soldier soldier(){
-//        Soldier soldier = new Soldier("Arnold", 39);
-//        soldier.setMission(mission);
-//        return soldier;
-//    }
-
-
 
 }

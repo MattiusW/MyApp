@@ -4,13 +4,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
-@Component
+
+import java.util.Objects;
+
 public class Soldier {
 
 
-    private String name = "Arnold";
-    private int age = 29;
-
+    private String name;
+    private int age;
     private Mission mission;
 
     public Soldier(){
@@ -38,14 +39,19 @@ public class Soldier {
         this.age = age;
     }
 
+    @Override
+    public boolean equals(Object o){
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Soldier soldier = (Soldier) o;
+        return age == soldier.age;
+    }
 
-//    public Soldier(String name, int age, Mission mission){
-//        this.name = name;
-//        this.age = age;
-//        this.mission = mission;
-//    }
+    @Override
+    public int hashCode(){
+        return Objects.hash(age);
+    }
 
-    @Autowired
     public void setMission(Mission mission){
         this.mission = mission;
     }

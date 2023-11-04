@@ -7,22 +7,26 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
+import java.util.HashMap;
+import java.util.Map;
+
 @Component
 public class Barrack {
-    @Value("${my.castle.name:East Watch}")
+    @Value("${my.barrack.name:East Watch}")
     private String name;
-    @Autowired
-    Soldier soldier;
 
-    @Autowired
-    public Barrack(Soldier soldier){
-        this.soldier = soldier;
+    Map<String, Soldier> soldiers = new HashMap<>();
+
+    Barrack(){
+
+    }
+    Barrack(String name){
+        this.name = name;
+
     }
 
-
-    Barrack(String name, Soldier soldier){
-        this.name = name;
-        this.soldier = soldier;
+    public void createSoldier(String name, int age){
+        soldiers.put(name, new Soldier(name, age));
     }
 
 
@@ -41,7 +45,7 @@ public class Barrack {
 
     @Override
     public String toString(){
-        return name + soldier;
+        return name ;
     }
 
 }

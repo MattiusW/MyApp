@@ -18,7 +18,7 @@ public class BarrackTest {
         Mission mission = new Mission();
         Soldier soldier = new Soldier();
         soldier.setMission(mission);
-        Barrack barrack = new Barrack("Black Barrack", soldier);
+        Barrack barrack = new Barrack("Black Barrack");
         String except = "Black Barrack| Soldier name: Bruce | Age: 29 | Mission: Example Mission";
         assertEquals(except, barrack.toString());
     }
