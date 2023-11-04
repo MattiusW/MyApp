@@ -12,7 +12,7 @@ public class MenuTest {
 
     @Test
     public void menuTest(){
-        Menu menu = new Menu(1L, "Fish");
+        Menu menu = new Menu(1L, "Fish", 10.00);
         Menu except = menu;
         assertEquals(except, menu);
     }

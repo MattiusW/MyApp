@@ -10,7 +10,7 @@ public class Starter implements CommandLineRunner {
 
 
     public void run(String... args) throws Exception{
-        Menu menu = new Menu(1L, "Fish");
+        Menu menu = new Menu(1L, "Fish", 10.00);
         System.out.println(menu);
     }
 }
