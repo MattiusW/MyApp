@@ -3,12 +3,12 @@ package com.mateuszwalczyk.soldierapp.domain;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
-
+@Component
 public class Soldier {
 
 
-    private String name;
-    private int age;
+    private String name = "Arnold";
+    private int age = 29;
 
     private Mission mission;
 
@@ -27,6 +27,7 @@ public class Soldier {
 //        this.mission = mission;
 //    }
 
+    @Autowired
     public void setMission(Mission mission){
         this.mission = mission;
     }

@@ -7,17 +7,18 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class Barrack {
-
+    @Value("${my.castle.name:East Watch}")
     private String name;
-
+    @Autowired
     Soldier soldier;
 
-
+    @Autowired
     public Barrack(Soldier soldier){
         this.soldier = soldier;
     }
+
 
     Barrack(String name, Soldier soldier){
         this.name = name;

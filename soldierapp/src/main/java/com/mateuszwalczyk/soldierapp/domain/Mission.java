@@ -2,7 +2,7 @@ package com.mateuszwalczyk.soldierapp.domain;
 
 import org.springframework.stereotype.Component;
 
-//@Component
+@Component
 public class Mission {
 
     private String description;

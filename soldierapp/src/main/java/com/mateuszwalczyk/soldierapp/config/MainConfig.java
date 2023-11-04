@@ -12,27 +12,18 @@ import org.springframework.context.annotation.PropertySource;
 
 @Configuration
 //@ImportResource("classpath:config/barrack-config.xml")
-@PropertySource("classpath:barrack.properties")
 public class MainConfig {
 
-    @Bean
-    public Mission createMission(){
-        return new Mission();
-    }
+//    @Autowired
+//    Mission mission;
+//
+//    @Bean
+//    public Soldier soldier(){
+//        Soldier soldier = new Soldier("Arnold", 39);
+//        soldier.setMission(mission);
+//        return soldier;
+//    }
 
-    @Bean
-    public Soldier soldier(){
-        Soldier soldier = new Soldier("Arnold", 39);
-        soldier.setMission(createMission());
-        return soldier;
-    }
 
-    @Bean(name="barrack", initMethod = "build", destroyMethod = "tearDown")
-    @Value("${my.barrack.name}")
-    public Barrack barrack(String name){
-        Barrack barrack = new Barrack(soldier());
-        barrack.setName(name);
-        return barrack;
-    }
 
 }
