@@ -23,10 +23,11 @@ public class Menu {
     private double price;
 
     public Menu(){
-
+        super();
     }
 
     public Menu(Long id, String dish, double price){
+        super();
         this.id = id;
         this.dish = dish;
         this.price = price;
