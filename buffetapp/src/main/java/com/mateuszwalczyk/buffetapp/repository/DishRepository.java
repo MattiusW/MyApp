@@ -1,11 +1,8 @@
 package com.mateuszwalczyk.buffetapp.repository;
 
 import com.mateuszwalczyk.buffetapp.domain.Menu;
-//import com.mateuszwalczyk.buffetapp.repository.MenuRepository;
 import jakarta.annotation.PostConstruct;
-import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
-import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -47,7 +44,7 @@ public class DishRepository {
     @Override
     public String toString() {
         return "DishRepository{" +
-                "menus=" + menus +
+                "menu=" + menus +
                 '}';
     }
 }

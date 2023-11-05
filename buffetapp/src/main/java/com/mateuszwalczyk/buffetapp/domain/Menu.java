@@ -1,11 +1,5 @@
 package com.mateuszwalczyk.buffetapp.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Size;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -13,7 +7,7 @@ import org.springframework.stereotype.Component;
 public class Menu {
 
     @Autowired
-    Dish description;
+    DishTime dishTime;
 
     private String dish;
 
@@ -54,7 +48,7 @@ public class Menu {
 
 
     public String toString(){
-        return " Dish: " + this.dish + ", Price: " + this.price + ", Description: " + description;
+        return " DishTime: " + this.dish + ", Price: " + this.price + ", Time: " + dishTime;
     }
 
 }
