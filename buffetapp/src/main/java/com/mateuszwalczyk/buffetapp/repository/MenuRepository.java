@@ -43,7 +43,7 @@ public class MenuRepository implements MenuRepositoryInterface {
     public void randomMenu(){
         addDish("Sushi", 59.99);
         addDish("Steak", 79.99);
-        addDish("Dumplings with meat", 39.99);
+        addDish("Dumplings", 39.99);
     }
 
     @Override

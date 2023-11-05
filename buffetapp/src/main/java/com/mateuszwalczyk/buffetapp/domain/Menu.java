@@ -45,7 +45,7 @@ public class Menu {
 
 
     public String toString(){
-        return " OrderTime: " + this.dish + ", Price: " + this.price;
+        return " Dish: " + this.dish + ", Price: " + this.price;
     }
 
 }
