@@ -1,8 +1,9 @@
-package com.mateuszwalczyk.buffetapp.controller;
+package com.mateuszwalczyk.buffetapp.repository;
 
 import com.mateuszwalczyk.buffetapp.domain.Menu;
 //import com.mateuszwalczyk.buffetapp.repository.MenuRepository;
 import org.springframework.stereotype.Controller;
+import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collection;
@@ -10,12 +11,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 
-@Controller
-@RequestMapping("/menu")
+@Repository
 public class DishRepository {
-
-//    @Autowired
-//    MenuRepository menuRepository;
 
     Map<String, Menu> menus = new HashMap<>();
 
@@ -45,13 +42,11 @@ public class DishRepository {
         addDish("Dumplings with meat", 39.99);
     }
 
-
-
-//    @GetMapping("/viewMenu")
-//    public String viewMenuPage(Model model){
-//        model.addAttribute("menu", new Menu());
-//        return "menuForm.html";
-//    }
-
+    @Override
+    public String toString() {
+        return "DishRepository{" +
+                "menus=" + menus +
+                '}';
+    }
 
 }
