@@ -1,13 +1,12 @@
 package com.mateuszwalczyk.buffetapp.repository;
 
 import com.mateuszwalczyk.buffetapp.domain.Menu;
-import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
 
 @Repository
-public class DBMenuRepository implements MenuRepository {
+public class DBMenuRepository implements MenuRepositoryInterface {
     //CREATE
     @Override
     public void addDish(String dish, double price){
