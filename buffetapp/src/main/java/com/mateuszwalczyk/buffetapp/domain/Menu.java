@@ -1,13 +1,10 @@
 package com.mateuszwalczyk.buffetapp.domain;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Menu {
 
-    @Autowired
-    DishTime dishTime;
 
     private String dish;
 
@@ -48,7 +45,7 @@ public class Menu {
 
 
     public String toString(){
-        return " DishTime: " + this.dish + ", Price: " + this.price + ", Time: " + dishTime;
+        return " OrderTime: " + this.dish + ", Price: " + this.price;
     }
 
 }

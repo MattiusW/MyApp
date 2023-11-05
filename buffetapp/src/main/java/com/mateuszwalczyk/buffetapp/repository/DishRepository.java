@@ -10,30 +10,35 @@ import java.util.Map;
 
 
 @Repository
-public class DishRepository {
+public class DishRepository implements MenuRepository {
 
     Map<String, Menu> menus = new HashMap<>();
 
     //CREATE
+    @Override
     public void addDish(String dish, double price){
         menus.put(dish, new Menu(dish, price));
     }
 
     //Read
+    @Override
     public Collection<Menu> getAllForMenu(){
         return menus.values();
     }
 
     //Read
+    @Override
     public Menu getDish(String dish){
         return menus.get(dish);
     }
 
     //Delete
+    @Override
     public void deleteMenu(String dish){
         menus.remove(dish);
     }
 
+    @Override
     @PostConstruct
     public void randomMenu(){
         addDish("Sushi", 59.99);
