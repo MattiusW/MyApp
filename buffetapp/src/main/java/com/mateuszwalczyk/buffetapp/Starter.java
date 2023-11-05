@@ -1,16 +1,19 @@
 package com.mateuszwalczyk.buffetapp;
 
-import com.mateuszwalczyk.buffetapp.domain.Menu;
+import com.mateuszwalczyk.buffetapp.repository.DishRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component
+@Scope("singleton")
 public class Starter implements CommandLineRunner {
 
+    @Autowired
+    DishRepository dishRepository;
 
     public void run(String... args) throws Exception{
-        Menu menu = new Menu(1L, "Fish", 10.00);
-        System.out.println(menu);
+        System.out.println(dishRepository);
     }
 }

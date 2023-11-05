@@ -6,20 +6,17 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-//@Entity
 public class Menu {
 
-//    @Id
-//    @GeneratedValue(strategy = GenerationType.IDENTITY)
-//    private Long id;
-//    @NotNull
-//    @Size(min = 1, max = 12)
+    @Autowired
+    Dish description;
+
     private String dish;
 
-//    @NotNull
     private double price;
 
     public Menu(){
@@ -27,7 +24,6 @@ public class Menu {
     }
 
     public Menu(String dish, double price){
-//        this.id = id;
         this.dish = dish;
         this.price = price;
     }
@@ -58,7 +54,7 @@ public class Menu {
 
 
     public String toString(){
-        return "| Dish: " + this.dish + " | Price: " + price +"$ |";
+        return " Dish: " + this.dish + ", Price: " + this.price + ", Description: " + description;
     }
 
 }

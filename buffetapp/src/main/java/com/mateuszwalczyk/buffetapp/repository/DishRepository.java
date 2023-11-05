@@ -2,6 +2,7 @@ package com.mateuszwalczyk.buffetapp.repository;
 
 import com.mateuszwalczyk.buffetapp.domain.Menu;
 //import com.mateuszwalczyk.buffetapp.repository.MenuRepository;
+import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
 import org.springframework.web.bind.annotation.*;
@@ -36,6 +37,7 @@ public class DishRepository {
         menus.remove(dish);
     }
 
+    @PostConstruct
     public void randomMenu(){
         addDish("Sushi", 59.99);
         addDish("Steak", 79.99);
@@ -48,5 +50,4 @@ public class DishRepository {
                 "menus=" + menus +
                 '}';
     }
-
 }

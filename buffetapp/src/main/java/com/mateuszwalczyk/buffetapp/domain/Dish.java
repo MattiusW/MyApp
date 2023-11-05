@@ -6,6 +6,10 @@ public class Dish {
 
     private String description;
 
+    private Dish(){
+
+    }
+
     public Dish(String description){
         this.description = description;
     }
