@@ -14,7 +14,7 @@ public class Menu {
 
 //    @Id
 //    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
+//    private Long id;
 //    @NotNull
 //    @Size(min = 1, max = 12)
     private String dish;
@@ -23,23 +23,22 @@ public class Menu {
     private double price;
 
     public Menu(){
-        super();
+
     }
 
-    public Menu(Long id, String dish, double price){
-        super();
-        this.id = id;
+    public Menu(String dish, double price){
+//        this.id = id;
         this.dish = dish;
         this.price = price;
     }
 
-    public Long getId(){
-        return id;
-    }
+//    public Long getId(){
+//        return id;
+//    }
 
-    public void setId(Long id){
-        this.id = id;
-    }
+//    public void setId(Long id){
+//        this.id = id;
+//    }
 
     public String getDish(){
         return dish;
@@ -59,7 +58,7 @@ public class Menu {
 
 
     public String toString(){
-        return "| Id: " + this.id + " | Dish: " + this.dish + " | Price: " + price +"$ |";
+        return "| Dish: " + this.dish + " | Price: " + price +"$ |";
     }
 
 }
