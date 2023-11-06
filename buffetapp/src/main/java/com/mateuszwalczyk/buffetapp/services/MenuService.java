@@ -30,4 +30,8 @@ public class MenuService {
     public Menu getDishMenu(Integer id) {
         return repository.getDishById(id);
     }
+
+    public void deleteDish(Integer id) {
+        repository.deleteMenu(id);
+    }
 }
