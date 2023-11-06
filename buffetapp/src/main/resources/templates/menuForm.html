@@ -2,11 +2,17 @@
 <html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
+
+    <script th:scr="@{webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:scr="@{webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+
 </head>
 <body>
-    <h1> Menu </h1>
-        <table>
+    <div class="container">
+        <h1 class="mt-5"> Menu </h1>
+        <table class="table">
             <thead>
                 <tr>
                     <td>Dish name: </td>
@@ -20,5 +26,6 @@
                     </tr>
                 </tbody>
         </table>
+    </div>
 </body>
 </html>
