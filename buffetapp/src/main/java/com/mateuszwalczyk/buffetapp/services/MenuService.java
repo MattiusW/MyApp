@@ -19,4 +19,11 @@ public class MenuService {
         return new ArrayList<>(repository.getAllForMenu());
     }
 
+    public Menu addDishToMenu(){
+        return new Menu();
+    }
+
+    public void saveDish(Menu menu) {
+        repository.addNewDish(menu);
+    }
 }

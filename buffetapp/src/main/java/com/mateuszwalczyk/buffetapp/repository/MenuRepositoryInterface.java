@@ -16,4 +16,6 @@ public interface MenuRepositoryInterface {
     void deleteMenu(String dish);
 
     void randomMenu();
+
+    void addNewDish(Menu menu);
 }

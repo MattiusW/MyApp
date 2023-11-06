@@ -47,6 +47,11 @@ public class MenuRepository implements MenuRepositoryInterface {
     }
 
     @Override
+    public void addNewDish(Menu menu) {
+        menus.put(menu.getDish(), menu);
+    }
+
+    @Override
     public String toString() {
         return "MenuRepository{" +
                 "menu=" + menus +

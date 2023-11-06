@@ -36,5 +36,10 @@ public class DBMenuRepository implements MenuRepositoryInterface {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
+    @Override
+    public void addNewDish(Menu menu) {
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
 
 }
