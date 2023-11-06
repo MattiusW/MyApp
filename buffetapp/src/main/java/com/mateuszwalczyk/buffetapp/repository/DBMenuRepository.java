@@ -4,6 +4,7 @@ import com.mateuszwalczyk.buffetapp.domain.Menu;
 import org.springframework.stereotype.Repository;
 
 import java.util.Collection;
+import java.util.Optional;
 
 @Repository
 public class DBMenuRepository implements MenuRepositoryInterface {
@@ -21,13 +22,13 @@ public class DBMenuRepository implements MenuRepositoryInterface {
 
     //Read
     @Override
-    public Menu getDish(String dish){
+    public Optional<Menu> getDish(String dish){
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
     //Delete
     @Override
-    public void deleteMenu(String dish){
+    public void deleteMenu(Integer id){
         throw new UnsupportedOperationException("Not implemented yet");
     }
 
@@ -38,6 +39,11 @@ public class DBMenuRepository implements MenuRepositoryInterface {
 
     @Override
     public void addNewDish(Menu menu) {
+        throw new UnsupportedOperationException("Not implemented yet");
+    }
+
+    @Override
+    public Menu getDishById(Integer id) {
         throw new UnsupportedOperationException("Not implemented yet");
     }
 

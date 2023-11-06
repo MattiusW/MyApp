@@ -26,4 +26,8 @@ public class MenuService {
     public void saveDish(Menu menu) {
         repository.addNewDish(menu);
     }
+
+    public Menu getDishMenu(Integer id) {
+        return repository.getDishById(id);
+    }
 }

@@ -7,20 +7,43 @@ import org.springframework.stereotype.Repository;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 
 
 @Repository
 public class MenuRepository implements MenuRepositoryInterface {
 
-    Map<String, Menu> menus = new HashMap<>();
+    Map<Integer, Menu> menus = new HashMap<>();
+
+    public MenuRepository(){
+
+    }
 
     //CREATE
     @Override
     public void addDish(String dish, double price){
-        menus.put(dish, new Menu(dish, price));
+
+        Menu newDish = new Menu(dish, price);
+        newDish.setId(getNewId());
+        menus.put(newDish.getId(), newDish);
     }
 
-    //Read
+
+    public int getNewId() {
+        if(menus.isEmpty()){
+            return 0;
+        }
+        else{
+            Integer maxID = menus.keySet().stream().max(Integer::max).orElse(0);
+            int newID = maxID + 1;
+            while (menus.containsKey(newID)){
+                newID++;
+            }
+            return newID;
+        }
+    }
+
+    //Read all
     @Override
     public Collection<Menu> getAllForMenu(){
         return menus.values();
@@ -28,14 +51,17 @@ public class MenuRepository implements MenuRepositoryInterface {
 
     //Read
     @Override
-    public Menu getDish(String dish){
-        return menus.get(dish);
+    public Optional<Menu> getDish(String dish){
+
+        Optional<Menu> dishByName = menus.values().stream().filter(menu -> menu.getDish().equals(dish)).findAny();
+
+        return dishByName;
     }
 
     //Delete
     @Override
-    public void deleteMenu(String dish){
-        menus.remove(dish);
+    public void deleteMenu(Integer id){
+        menus.remove(id);
     }
 
     @Override
@@ -46,9 +72,16 @@ public class MenuRepository implements MenuRepositoryInterface {
         addDish("Dumplings", 39.99);
     }
 
+    //Add dish with user input
     @Override
     public void addNewDish(Menu menu) {
-        menus.put(menu.getDish(), menu);
+        menu.setId(getNewId());
+        menus.put(menu.getId(), menu);
+    }
+
+    @Override
+    public Menu getDishById(Integer id) {
+        return menus.get(id);
     }
 
     @Override

@@ -3,6 +3,7 @@ package com.mateuszwalczyk.buffetapp.repository;
 import com.mateuszwalczyk.buffetapp.domain.Menu;
 
 import java.util.Collection;
+import java.util.Optional;
 
 public interface MenuRepositoryInterface {
 
@@ -11,11 +12,13 @@ public interface MenuRepositoryInterface {
 
     Collection<Menu> getAllForMenu();
 
-    Menu getDish(String dish);
+    Optional<Menu> getDish(String dish);
 
-    void deleteMenu(String dish);
+    void deleteMenu(Integer id);
 
     void randomMenu();
 
     void addNewDish(Menu menu);
+
+    Menu getDishById(Integer id);
 }

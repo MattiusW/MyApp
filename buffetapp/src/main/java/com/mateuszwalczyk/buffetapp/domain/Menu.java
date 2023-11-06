@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Menu {
 
-
+    private int id;
     private String dish;
 
     private double price;
@@ -19,13 +19,13 @@ public class Menu {
         this.price = price;
     }
 
-//    public Long getId(){
-//        return id;
-//    }
+    public int getId(){
+        return id;
+    }
 
-//    public void setId(Long id){
-//        this.id = id;
-//    }
+    public void setId(int id){
+        this.id = id;
+    }
 
     public String getDish(){
         return dish;

@@ -8,8 +8,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 
-import java.util.ArrayList;
 import java.util.List;
 
 @Controller
@@ -18,13 +18,14 @@ public class MenuController {
     @Autowired
     MenuService service;
 
-    @RequestMapping("/guess/menu")
+    @RequestMapping("/menu")
     public String getDish(Model model){
         List<Menu> getAllDish = service.getAllMenu();
         model.addAttribute("AllMenu", getAllDish);
         return "guessMenuForm";
     }
 
+    //Add dish to menu
     @RequestMapping("/add/menu")
     public String addToMenu(Model model){
         Menu addDish = service.addDishToMenu();
@@ -32,10 +33,19 @@ public class MenuController {
         return "addMenuForm";
     }
 
-    @RequestMapping(value = "/guess/menu", method = RequestMethod.POST)
+    //Save dish
+    @RequestMapping(value = "/menu", method = RequestMethod.POST)
     public String saveDish(Menu menu){
         service.saveDish(menu);
-        return "redirect:/guess/menu";
+        return "redirect:/menu";
+    }
+
+    //View dish
+    @RequestMapping("/view")
+    public String getDishOnMenu(@RequestParam("id") Integer id, Model model){
+        Menu menu = service.getDishMenu(id);
+        model.addAttribute("menu", menu);
+        return "dishForm";
     }
 
 }

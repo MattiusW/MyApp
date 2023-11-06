@@ -11,18 +11,19 @@
 </head>
 <body>
     <div class="container">
-        <h1 class="mt-5"> Menu </h1>
         <table class="table">
             <thead>
                 <tr>
                     <td>Dish name: </td>
                     <td>Price: </td>
+                    <td></td>
                 </tr>
             </thead>
                 <tbody th:each="menu : ${AllMenu}">
                     <tr>
                         <td th:text="${menu.dish}"></td>
                         <td th:text="${menu.price}"></td>
+                        <td><a th:href="${'/view?id='+menu.id}">View</a></td>
                     </tr>
                 </tbody>
         </table>
