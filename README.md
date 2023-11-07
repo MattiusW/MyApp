@@ -1,4 +1,4 @@
 # MyApp
 I've working Spring app to portfolio
 
-This will be a soldier management application where you can create, delete, and update soldier. You can send them on missions to gain experience and money. You can also generate reports upon mission completion, unlock new missions, and purchase new soldiers.
+This will be a game shop management application where you can create, read, update and delete game. Standard option for Admin. But User can view game, add to cart, delete, view and buy products.
