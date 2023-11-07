@@ -69,8 +69,8 @@ public class MemoryGameRepository implements InterfaceGameRepository {
 
     //REPAIR POSTCONSTRUCT! Create few game on start applicaton
     @Override
-//    @PostConstruct
-    public void randomGame(Game game){
+    @PostConstruct
+    public void randomGame(){
         addGame("The Witcher", 299.99, 1);
         addGame("BloodBorne", 99.99, 5);
         addGame("Heroes III", 39.99, 3);

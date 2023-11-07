@@ -22,5 +22,5 @@ public interface InterfaceGameRepository {
     void deleteMenu(Integer id);
 
     //Create few game on start applicaton
-    void randomGame(Game game);
+    void randomGame();
 }
