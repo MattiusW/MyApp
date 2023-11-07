@@ -67,7 +67,7 @@ public class MemoryGameRepository implements InterfaceGameRepository {
         games.remove(id);
     }
 
-    //REPAIR POSTCONSTRUCT! Create few game on start applicaton
+    //Create few game on start applicaton
     @Override
     @PostConstruct
     public void randomGame(){
