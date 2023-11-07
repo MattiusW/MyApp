@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
+
+    <script th:scr="@{webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:scr="@{webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+
+</head>
+<body>
+    <div class="container">
+        <h1>Admin view</h1>
+        <table class="table">
+            <thead>
+            <tr>
+                <td><b>Title: </b></td>
+                <td><b>Price: </b></td>
+                <td><b>State: </b></td>
+            </tr>
+            </thead>
+                <tbody th:each="game : ${allAdminGameView}">
+                    <tr>
+                        <td th:text="${game.name}"></td>
+                        <td th:text="${game.price}"></td>
+                        <td th:text="${game.howMany}"></td>
+                    </tr>
+                </tbody>
+        </table>
+    </div>
+</body>
+</html>
