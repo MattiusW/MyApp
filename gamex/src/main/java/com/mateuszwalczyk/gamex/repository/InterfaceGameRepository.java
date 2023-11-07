@@ -9,6 +9,9 @@ import java.util.Optional;
 public interface InterfaceGameRepository {
     void addGame(String name, double price, int volume);
 
+    //Add new game UI user input
+    void addNewGame(Game game);
+
     //Get all values from collection
     Collection<Game> getAllGames();
 

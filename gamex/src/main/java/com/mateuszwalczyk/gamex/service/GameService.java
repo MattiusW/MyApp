@@ -19,4 +19,11 @@ public class GameService {
         return new ArrayList<>(memoryGameRepository.getAllGames());
     }
 
+    public Game addNewGameToList(){
+        return new Game();
+    }
+
+    public void saveGame(Game game) {
+        memoryGameRepository.addNewGame(game);
+    }
 }

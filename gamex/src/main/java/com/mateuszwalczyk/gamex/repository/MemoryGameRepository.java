@@ -26,6 +26,14 @@ public class MemoryGameRepository implements InterfaceGameRepository {
         games.put(newGame.getId(), newGame);
     }
 
+    //Add new game UI user input
+    @Override
+    public void addNewGame(Game game){
+        game.setId(getNewID());
+        games.put(game.getId(), game);
+    }
+
+
     //Generate new ID to put game in map
     public int getNewID(){
         if(games.isEmpty()){
@@ -75,6 +83,7 @@ public class MemoryGameRepository implements InterfaceGameRepository {
         addGame("BloodBorne", 99.99, 5);
         addGame("Heroes III", 39.99, 3);
     }
+
 
     @Override
     public String toString() {
