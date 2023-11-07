@@ -71,7 +71,7 @@ public class MemoryGameRepository implements InterfaceGameRepository {
 
     //Remove object with id
     @Override
-    public void deleteMenu(Integer id){
+    public void deleteGame(Integer id){
         games.remove(id);
     }
 

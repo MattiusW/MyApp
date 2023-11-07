@@ -26,4 +26,8 @@ public class GameService {
     public void saveGame(Game game) {
         memoryGameRepository.addNewGame(game);
     }
+
+    public void deleteGame(Integer id){
+        memoryGameRepository.deleteGame(id);
+    }
 }

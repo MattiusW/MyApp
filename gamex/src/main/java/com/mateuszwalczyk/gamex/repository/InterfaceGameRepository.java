@@ -22,7 +22,7 @@ public interface InterfaceGameRepository {
     Optional<Game> getGameByName(String name);
 
     //Remove object with id
-    void deleteMenu(Integer id);
+    void deleteGame(Integer id);
 
     //Create few game on start applicaton
     void randomGame();
