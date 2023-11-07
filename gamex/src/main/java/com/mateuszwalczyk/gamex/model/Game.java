@@ -14,8 +14,7 @@ public class Game {
 
     }
 
-    public Game(int id, String name, double price, int howMany ){
-        this.id = id;
+    public Game(String name, double price, int howMany ){
         this.name = name;
         this.price = price;
         this.howMany = howMany;
