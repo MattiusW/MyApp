@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -38,7 +39,8 @@ public class AdminGameController {
 
     //Save game in repository
     @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
-    public String saveGameOnList(@Valid Game game, BindingResult bindingResult, Model model){
+    //@ModelAttribute() main method to add view bad validation on user side
+    public String saveGameOnList(@Valid @ModelAttribute("addNewGame") Game game, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             System.out.println("Wrong value");
             //View on console all errors
