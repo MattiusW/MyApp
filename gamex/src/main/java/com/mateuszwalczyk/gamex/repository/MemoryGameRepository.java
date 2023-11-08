@@ -1,6 +1,7 @@
 package com.mateuszwalczyk.gamex.repository;
 
 import com.mateuszwalczyk.gamex.model.Game;
+import com.mateuszwalczyk.gamex.utils.Ids;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
@@ -22,31 +23,15 @@ public class MemoryGameRepository implements InterfaceGameRepository {
     @Override
     public void addGame(String name, double price, int volume){
         Game newGame = new Game(name, price, volume);
-        newGame.setId(getNewID());
+        newGame.setId(Ids.getNewID(games.keySet()));
         games.put(newGame.getId(), newGame);
     }
 
     //Add new game UI user input
     @Override
     public void addNewGame(Game game){
-        game.setId(getNewID());
+        game.setId(Ids.getNewID(games.keySet()));
         games.put(game.getId(), game);
-    }
-
-
-    //Generate new ID to put game in map
-    public int getNewID(){
-        if(games.isEmpty()){
-            return 0;
-        }
-        else{
-            Integer maxID = games.keySet().stream().max(Integer::max).orElse(0);
-            int newID = maxID + 1;
-            while (games.containsKey(newID)){
-                newID++;
-            }
-            return newID;
-        }
     }
 
     //Get all values from collection
