@@ -1,13 +1,23 @@
 package com.mateuszwalczyk.gamex.model;
 
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Size;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Game {
 
     private int id;
+
+    @NotNull
+    @Size(min = 1, max = 15)
     private String name;
+    @NotNull
+    @Range(min = 19, max = 400)
     private double price;
+    @NotNull
+    @Range(min = 0, max = 100)
     private int howMany;
 
     public Game(){

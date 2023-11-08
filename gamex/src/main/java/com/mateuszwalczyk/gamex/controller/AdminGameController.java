@@ -3,12 +3,15 @@ package com.mateuszwalczyk.gamex.controller;
 import com.mateuszwalczyk.gamex.model.Game;
 import com.mateuszwalczyk.gamex.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.Banner;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
+import javax.validation.Valid;
 import java.util.List;
 
 @Controller
@@ -36,9 +39,17 @@ public class AdminGameController {
 
     //Save game in repository
     @RequestMapping(value = "/admin/add", method = RequestMethod.POST)
-    public String saveGameOnList(Game game){
-        gameService.saveGame(game);
-        return "redirect:/admin/games";
+    public String saveGameOnList(@Valid Game game, BindingResult bindingResult, Model model){
+        if(bindingResult.hasErrors()){
+            System.out.println("Wrong value");
+            //BindingResult need model attribute. Object from HTML.FORM and class model where is validation date.
+            model.addAttribute("addNewGame", new Game());
+            return "adminAddGameForm";
+        }
+        else {
+            gameService.saveGame(game);
+            return "redirect:/admin/games";
+        }
     }
 
     //Delete game from list
