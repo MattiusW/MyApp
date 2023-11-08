@@ -17,7 +17,7 @@ public class Game {
     @Range(min = 19, max = 400)
     private double price;
     @NotNull
-    @Range(min = 0, max = 100)
+    @Range(min = 1, max = 100)
     private int howMany;
 
     public Game(){

@@ -18,16 +18,20 @@
                 <h1>Add game</h1>
                 <label class="control-label">Title</label>
                 <input type="text" class="form-control" th:field="*{name}"/>
+                <p th:if="${#fields.hasErrors('name')}" th:errors="*{name}"/>
             </div>
 
             <div class="form-group">
                 <label class="control-label">Price</label>
                 <input type="text" class="form-control" th:field="*{price}"/>
+                <p th:if="${#fields.hasErrors('price')}" th:errors="*{price}"/>
             </div>
+
 
             <div class="form-group">
                 <label class="control-label">Amount</label>
                 <input type="text" class="form-control" th:field="*{howMany}"/>
+                <p th:if="${#fields.hasErrors('howMany')}" th:errors="*{howMany}"/>
             </div>
 
             <div class="row">

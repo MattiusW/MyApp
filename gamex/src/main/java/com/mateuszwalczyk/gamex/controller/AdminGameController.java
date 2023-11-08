@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
@@ -42,8 +43,11 @@ public class AdminGameController {
     public String saveGameOnList(@Valid Game game, BindingResult bindingResult, Model model){
         if(bindingResult.hasErrors()){
             System.out.println("Wrong value");
+            //View on console all errors
+            bindingResult.getAllErrors().forEach(error ->
+                    System.out.println(error.getObjectName() + " " + error.getDefaultMessage()));
             //BindingResult need model attribute. Object from HTML.FORM and class model where is validation date.
-            model.addAttribute("addNewGame", new Game());
+            model.addAttribute("addNewGame", game);
             return "adminAddGameForm";
         }
         else {
