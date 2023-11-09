@@ -1,8 +1,10 @@
 package com.mateuszwalczyk.gamex.repository;
 
 import com.mateuszwalczyk.gamex.model.Game;
+import com.mateuszwalczyk.gamex.utils.Ids;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
+
 
 import java.util.Collection;
 import java.util.HashMap;
@@ -27,8 +29,13 @@ public class MemoryCartRepository {
                 System.out.println("Out of stock");
             }
             else{
+//                if (cart.containsKey(gameToBuy.getId())){
+//
+//                }
+
                 cart.put(gameToBuy.getId(), gameToBuy);
                 gameToBuy.setHowMany(gameToBuy.getHowMany() - 1); //subtract state
+
             }
         }
     }

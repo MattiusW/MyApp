@@ -27,6 +27,8 @@ public class Game {
     @Range(min = 1, max = 100)
     private int howMany;
 
+    private int counter;
+
     public Game(){
 
     }
@@ -68,6 +70,14 @@ public class Game {
 
     public void setHowMany(int howMany){
         this.howMany = howMany;
+    }
+
+    public int getCounter(){
+        return counter;
+    }
+
+    public void setCounter(int counter){
+        this.counter = counter;
     }
 
     @Override
