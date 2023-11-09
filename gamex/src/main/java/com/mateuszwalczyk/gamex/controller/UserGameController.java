@@ -5,6 +5,7 @@ import com.mateuszwalczyk.gamex.service.GameService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.util.List;
@@ -28,6 +29,12 @@ public class UserGameController {
         List<Game> viewAllGameInCart = gameService.getAllGameFromCart();
         model.addAttribute("viewCart", viewAllGameInCart);
         return "cartForm";
+    }
+
+    @RequestMapping("/cart/delete/{id}")
+    public String removeGameInCart(@PathVariable("id") Integer id){
+        gameService.deleteGameOnCart(id);
+        return "redirect:/cart";
     }
 
 

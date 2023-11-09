@@ -29,9 +29,15 @@ public class MemoryCartRepository {
         }
     }
 
+    //Read all game in cart
     public Collection<Game> getGamesInCart(){
         return cart.values();
     }
+
+    public void removeGame(Integer id){
+        cart.remove(id);
+    }
+
 
     @Override
     public String toString(){

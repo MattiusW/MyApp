@@ -44,4 +44,8 @@ public class GameService {
     public void buyGameById(Integer id){
         memoryCartRepository.buyGame(id);
     }
+
+    public void deleteGameOnCart(Integer id){
+        memoryCartRepository.removeGame(id);
+    }
 }
