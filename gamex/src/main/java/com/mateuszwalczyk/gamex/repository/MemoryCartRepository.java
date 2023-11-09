@@ -29,13 +29,9 @@ public class MemoryCartRepository {
                 System.out.println("Out of stock");
             }
             else{
-//                if (cart.containsKey(gameToBuy.getId())){
-//
-//                }
-
                 cart.put(gameToBuy.getId(), gameToBuy);
                 gameToBuy.setHowMany(gameToBuy.getHowMany() - 1); //subtract state
-
+                gameToBuy.setCounter(gameToBuy.getCounter() + 1); //Increase counter
             }
         }
     }
@@ -49,8 +45,9 @@ public class MemoryCartRepository {
     public void removeGame(Integer id){
         Game gameRemoveOnCart = memoryGameRepository.getGameById(id);
         //Add game to state if remove
-        gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany() + 1);
+        gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany() + gameRemoveOnCart.getCounter());
         cart.remove(id);
+        gameRemoveOnCart.setCounter(0); //reset counter
     }
 
     @Override
