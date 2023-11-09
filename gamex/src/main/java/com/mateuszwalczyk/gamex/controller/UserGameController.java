@@ -37,5 +37,4 @@ public class UserGameController {
         return "redirect:/cart";
     }
 
-
 }
