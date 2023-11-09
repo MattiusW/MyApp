@@ -37,4 +37,10 @@ public class UserGameController {
         return "redirect:/cart";
     }
 
+    @RequestMapping("/cart/buy/{id}")
+    public String putGameToCart(@PathVariable("id") Integer id){
+        gameService.buyGameById(id);
+        return "redirect:/cart";
+    }
+
 }

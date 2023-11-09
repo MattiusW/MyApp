@@ -22,10 +22,6 @@ public class Starter implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception{
         System.out.println(gameRepository);
-        cartRepository.buyGame(0);
-        cartRepository.buyGame(1);
-        cartRepository.buyGame(2);
-        cartRepository.buyGame(5);
         System.out.println("Game to buy: " + cartRepository);
     }
 }

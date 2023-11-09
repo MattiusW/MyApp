@@ -25,7 +25,7 @@
             <td th:text="${game.name}"></td>
             <td th:text="${game.price}"></td>
             <td th:text="${game.howMany}"></td>
-            <td><a th:href="${'/cart' + game.id}" class="btn btn-success">Buy</a></td>
+            <td><a th:href="${'/cart/buy/' + game.id}" class="btn btn-success">Buy</a></td>
         </tr>
         </tbody>
         <a href="/cart" class="btn btn-primary">Cart</a>

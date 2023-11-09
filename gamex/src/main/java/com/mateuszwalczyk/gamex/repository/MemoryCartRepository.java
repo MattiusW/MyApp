@@ -34,6 +34,7 @@ public class MemoryCartRepository {
         return cart.values();
     }
 
+    //Delete game in cart
     public void removeGame(Integer id){
         cart.remove(id);
     }
