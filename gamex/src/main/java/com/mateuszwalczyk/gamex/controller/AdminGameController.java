@@ -21,7 +21,6 @@ public class AdminGameController {
     @Autowired
     GameService gameService;
 
-
     //View all games in web page
     @RequestMapping("/admin/games")
     public String getTableOfGamesAdmin(Model model){

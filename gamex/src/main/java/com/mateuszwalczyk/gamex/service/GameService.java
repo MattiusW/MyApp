@@ -1,6 +1,7 @@
 package com.mateuszwalczyk.gamex.service;
 
 import com.mateuszwalczyk.gamex.model.Game;
+import com.mateuszwalczyk.gamex.repository.MemoryCartRepository;
 import com.mateuszwalczyk.gamex.repository.MemoryGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ public class GameService {
 
     @Autowired
     MemoryGameRepository memoryGameRepository;
+
 
     public List<Game> getAllGameFromMemory(){
         return new ArrayList<>(memoryGameRepository.getAllGames());
@@ -30,4 +32,6 @@ public class GameService {
     public void deleteGame(Integer id){
         memoryGameRepository.deleteGame(id);
     }
+
+
 }
