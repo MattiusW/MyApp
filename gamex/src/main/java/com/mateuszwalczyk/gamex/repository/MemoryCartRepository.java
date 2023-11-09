@@ -24,7 +24,6 @@ public class MemoryCartRepository {
         }
         else {
             Game gameToBuy = memoryGameRepository.getGameById(id);
-            gameToBuy.setId(Ids.getNewID(cart.keySet()));
             cart.put(gameToBuy.getId(), gameToBuy);
         }
     }
