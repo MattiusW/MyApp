@@ -60,7 +60,7 @@ public class MemoryGameRepository implements InterfaceGameRepository {
         games.remove(id);
     }
 
-    //Create few game on start applicaton
+    //Create few game on start application
     @Override
     @PostConstruct
     public void randomGame(){

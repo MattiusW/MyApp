@@ -3,6 +3,7 @@ package com.mateuszwalczyk.gamex.service;
 import com.mateuszwalczyk.gamex.model.Game;
 import com.mateuszwalczyk.gamex.repository.MemoryCartRepository;
 import com.mateuszwalczyk.gamex.repository.MemoryGameRepository;
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
