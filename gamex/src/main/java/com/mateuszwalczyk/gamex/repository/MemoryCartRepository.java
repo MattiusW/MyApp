@@ -3,6 +3,7 @@ package com.mateuszwalczyk.gamex.repository;
 import com.mateuszwalczyk.gamex.model.Game;
 import com.mateuszwalczyk.gamex.utils.Ids;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 
@@ -10,6 +11,7 @@ import java.util.Collection;
 import java.util.HashMap;
 
 @Repository
+@Component
 public class MemoryCartRepository {
     //User cart repository
     @Autowired
@@ -43,11 +45,18 @@ public class MemoryCartRepository {
 
     //Delete game in cart
     public void removeGame(Integer id){
+
         Game gameRemoveOnCart = memoryGameRepository.getGameById(id);
-        //Add game to state if remove
-        gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany() + gameRemoveOnCart.getCounter());
-        cart.remove(id);
-        gameRemoveOnCart.setCounter(0); //reset counter
+        //Handle null exception
+        if(gameRemoveOnCart == null){
+            cart.remove(id);
+        }
+        else {
+            //Add game to state if remove
+            gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany() + gameRemoveOnCart.getCounter());
+            cart.remove(id);
+            gameRemoveOnCart.setCounter(0); //reset counter
+        }
     }
 
     @Override

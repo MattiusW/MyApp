@@ -61,7 +61,6 @@ public class AdminGameController {
     @RequestMapping("/admin/delete/{id}")
     public String deleteGame(@PathVariable("id") Integer id){
         gameService.deleteGame(id);
-        gameService.deleteGameOnCart(id); //delete also in cart repository
         return "redirect:/admin/games";
     }
 
