@@ -2,12 +2,10 @@ package com.mateuszwalczyk.gamex.repository;
 
 import com.mateuszwalczyk.gamex.model.Game;
 import com.mateuszwalczyk.gamex.utils.Ids;
-import jakarta.annotation.PostConstruct;
-import jakarta.persistence.AssociationOverride;
-import jakarta.persistence.criteria.CriteriaBuilder;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 
+import java.util.Collection;
 import java.util.HashMap;
 
 @Repository
@@ -29,6 +27,10 @@ public class MemoryCartRepository {
             gameToBuy.setId(Ids.getNewID(cart.keySet()));
             cart.put(gameToBuy.getId(), gameToBuy);
         }
+    }
+
+    public Collection<Game> getGamesInCart(){
+        return cart.values();
     }
 
     @Override

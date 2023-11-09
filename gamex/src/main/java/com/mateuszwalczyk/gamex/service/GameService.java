@@ -16,6 +16,9 @@ public class GameService {
     @Autowired
     MemoryGameRepository memoryGameRepository;
 
+    @Autowired
+    MemoryCartRepository memoryCartRepository;
+
 
     public List<Game> getAllGameFromMemory(){
         return new ArrayList<>(memoryGameRepository.getAllGames());
@@ -33,5 +36,12 @@ public class GameService {
         memoryGameRepository.deleteGame(id);
     }
 
+    public List<Game> getAllGameFromCart(){
+        return new ArrayList<>(memoryCartRepository.getGamesInCart());
+    }
 
+    //Indirect buy game
+    public void buyGameById(Integer id){
+        memoryCartRepository.buyGame(id);
+    }
 }
