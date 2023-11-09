@@ -24,6 +24,7 @@ public class Starter implements CommandLineRunner {
         System.out.println(gameRepository);
         cartRepository.buyGame(1);
         cartRepository.buyGame(2);
+        cartRepository.buyGame(5);
         System.out.println("Game to buy: " + cartRepository);
     }
 }

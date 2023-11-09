@@ -18,12 +18,18 @@ public class MemoryCartRepository {
 
     HashMap<Integer, Game> cart = new HashMap<>();
 
+    //Buy game by Id
     public void buyGame(Integer id){
-        Game gameToBuy = memoryGameRepository.getGameById(id);
-        gameToBuy.setId(Ids.getNewID(cart.keySet()));
-        cart.put(gameToBuy.getId(), gameToBuy);
+        if (memoryGameRepository.getGameById(id) == null)
+        {
+            System.out.println("Don't have a game");
+        }
+        else {
+            Game gameToBuy = memoryGameRepository.getGameById(id);
+            gameToBuy.setId(Ids.getNewID(cart.keySet()));
+            cart.put(gameToBuy.getId(), gameToBuy);
+        }
     }
-
 
     @Override
     public String toString(){
