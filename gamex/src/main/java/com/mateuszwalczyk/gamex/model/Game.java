@@ -11,6 +11,8 @@ import org.hibernate.validator.constraints.Range;
 import org.springframework.stereotype.Component;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
+import java.text.DecimalFormat;
 
 @Component
 @Entity
@@ -24,10 +26,10 @@ public class Game {
     private String name;
     @NotNull
     @Range(min = 19, max = 400)
-    private BigDecimal price;
+    private BigDecimal price = BigDecimal.ZERO;
     @NotNull
     @Range(min = 1, max = 100)
-    private BigDecimal howMany;
+    private BigDecimal howMany = BigDecimal.ZERO;
 
     private BigDecimal counter = BigDecimal.ZERO;
 
@@ -59,19 +61,19 @@ public class Game {
     }
 
     public BigDecimal getPrice(){
-        return price;
+        return price.setScale(2, RoundingMode.HALF_UP);
     }
 
     public void setPrice(BigDecimal price){
-        this.price = price;
+        this.price = price.setScale(2,RoundingMode.HALF_UP);
     }
 
     public BigDecimal getHowMany(){
-        return howMany;
+        return howMany.setScale(0, RoundingMode.HALF_UP);
     }
 
     public void setHowMany(BigDecimal howMany){
-        this.howMany = howMany;
+        this.howMany = howMany.setScale(0, RoundingMode.HALF_UP);
     }
 
     public BigDecimal getCounter(){

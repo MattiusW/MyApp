@@ -6,9 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
-
 import java.math.BigDecimal;
-import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.HashMap;
 
