@@ -42,8 +42,8 @@ public class GameService {
     }
 
     //Indirect buy game
-    public void buyGameById(Integer id){
-        memoryCartRepository.buyGame(id);
+    public void gameToCart(Integer id){
+        memoryCartRepository.addGameToCart(id);
     }
 
     public void deleteGameOnCart(Integer id){

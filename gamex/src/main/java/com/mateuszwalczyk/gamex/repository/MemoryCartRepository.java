@@ -1,7 +1,6 @@
 package com.mateuszwalczyk.gamex.repository;
 
 import com.mateuszwalczyk.gamex.model.Game;
-import com.mateuszwalczyk.gamex.utils.Ids;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
@@ -17,10 +16,10 @@ public class MemoryCartRepository {
     @Autowired
     MemoryGameRepository memoryGameRepository;
 
-    HashMap<Integer, Game> cart = new HashMap<>();
+    HashMap<Integer, Game> cart = new HashMap<>();;
 
     //Buy game by id
-    public void buyGame(Integer id){
+    public void addGameToCart(Integer id){
         if (memoryGameRepository.getGameById(id) == null)
         {
             System.out.println("Don't have a game");

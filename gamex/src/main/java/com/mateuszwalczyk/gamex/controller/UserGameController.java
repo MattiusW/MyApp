@@ -40,7 +40,7 @@ public class UserGameController {
 
     @RequestMapping("/cart/buy/{id}")
     public String putGameToCart(@PathVariable("id") Integer id){
-        gameService.buyGameById(id);
+        gameService.gameToCart(id);
         return "redirect:/cart";
     }
 
