@@ -8,6 +8,7 @@ import org.springframework.stereotype.Repository;
 
 
 import java.math.BigDecimal;
+import java.text.DecimalFormat;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -19,7 +20,7 @@ public class MemoryCartRepository {
     MemoryGameRepository memoryGameRepository;
     @Autowired
     Cart cartModel;
-    private double total;
+    private double total = 0;
 
     HashMap<Integer, Game> cart = new HashMap<>();;
 
@@ -39,7 +40,7 @@ public class MemoryCartRepository {
                 gameToBuy.setHowMany(gameToBuy.getHowMany() - 1); //subtract state
                 gameToBuy.setCounter(gameToBuy.getCounter() + 1); //Increase counter
                 total = total + gameToBuy.getPrice(); //View total price
-                cartModel.setTotalPrice(total);
+                cartModel.setTotalPrice(total); //Need parse to 2 decimal places
             }
         }
     }
@@ -60,8 +61,11 @@ public class MemoryCartRepository {
         else {
             //Add game to state if remove
             gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany() + gameRemoveOnCart.getCounter());
+            double removePrice = gameRemoveOnCart.getPrice() * gameRemoveOnCart.getCounter();
+            cartModel.setTotalPrice(total - removePrice);
             cart.remove(id);
             gameRemoveOnCart.setCounter(0); //reset counter
+            total = cartModel.getTotalPrice();
         }
     }
 
