@@ -3,11 +3,12 @@ package com.mateuszwalczyk.gamex.repository;
 import com.mateuszwalczyk.gamex.model.Game;
 import jakarta.annotation.PostConstruct;
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.Optional;
 
 public interface InterfaceGameRepository {
-    void addGame(String name, double price, int volume);
+    void addGame(String name, BigDecimal price, BigDecimal volume);
 
     //Add new game UI user input
     void addNewGame(Game game);

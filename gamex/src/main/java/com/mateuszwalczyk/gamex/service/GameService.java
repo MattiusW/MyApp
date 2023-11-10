@@ -34,6 +34,7 @@ public class GameService {
     }
 
     public void deleteGame(Integer id){
+        memoryCartRepository.removeGame(id);
         memoryGameRepository.deleteGame(id);
     }
 

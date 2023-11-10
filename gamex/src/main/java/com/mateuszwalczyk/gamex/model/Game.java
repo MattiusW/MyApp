@@ -10,6 +10,8 @@ import jakarta.validation.constraints.Size;
 import org.hibernate.validator.constraints.Range;
 import org.springframework.stereotype.Component;
 
+import java.math.BigDecimal;
+
 @Component
 @Entity
 public class Game {
@@ -22,18 +24,18 @@ public class Game {
     private String name;
     @NotNull
     @Range(min = 19, max = 400)
-    private double price;
+    private BigDecimal price;
     @NotNull
     @Range(min = 1, max = 100)
-    private int howMany;
+    private BigDecimal howMany;
 
-    private int counter;
+    private BigDecimal counter = BigDecimal.ZERO;
 
     public Game(){
 
     }
 
-    public Game(String name, double price, int howMany ){
+    public Game(String name, BigDecimal price, BigDecimal howMany){
         this.name = name;
         this.price = price;
         this.howMany = howMany;
@@ -56,27 +58,27 @@ public class Game {
         this.name = name;
     }
 
-    public double getPrice(){
+    public BigDecimal getPrice(){
         return price;
     }
 
-    public void setPrice(double price){
+    public void setPrice(BigDecimal price){
         this.price = price;
     }
 
-    public int getHowMany(){
+    public BigDecimal getHowMany(){
         return howMany;
     }
 
-    public void setHowMany(int howMany){
+    public void setHowMany(BigDecimal howMany){
         this.howMany = howMany;
     }
 
-    public int getCounter(){
+    public BigDecimal getCounter(){
         return counter;
     }
 
-    public void setCounter(int counter){
+    public void setCounter(BigDecimal counter){
         this.counter = counter;
     }
 

@@ -5,6 +5,8 @@ import com.mateuszwalczyk.gamex.utils.Ids;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Repository;
 
+import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
@@ -21,7 +23,7 @@ public class MemoryGameRepository implements InterfaceGameRepository {
     }
 
     @Override
-    public void addGame(String name, double price, int volume){
+    public void addGame(String name, BigDecimal price, BigDecimal volume){
         Game newGame = new Game(name, price, volume);
         newGame.setId(Ids.getNewID(games.keySet()));
         games.put(newGame.getId(), newGame);
@@ -64,9 +66,9 @@ public class MemoryGameRepository implements InterfaceGameRepository {
     @Override
     @PostConstruct
     public void randomGame(){
-        addGame("The Witcher", 199.99, 1);
-        addGame("BloodBorne", 99.99, 5);
-        addGame("Heroes III", 39.99, 3);
+        addGame("The Witcher", new BigDecimal(129.99).setScale(2, RoundingMode.HALF_UP), BigDecimal.ONE);
+        addGame("BloodBorne", new BigDecimal(99.99).setScale(2,RoundingMode.HALF_UP), new BigDecimal(5));
+        addGame("Heroes III", new BigDecimal(59.99).setScale(2, RoundingMode.HALF_UP), new BigDecimal(7));
     }
 
 

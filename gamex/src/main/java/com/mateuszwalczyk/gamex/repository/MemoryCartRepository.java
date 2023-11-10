@@ -20,9 +20,9 @@ public class MemoryCartRepository {
     MemoryGameRepository memoryGameRepository;
     @Autowired
     Cart cartModel;
-    private double total = 0;
+    private BigDecimal total = BigDecimal.ZERO;
 
-    HashMap<Integer, Game> cart = new HashMap<>();;
+    HashMap<Integer, Game> cart = new HashMap<>();
 
     //Buy game by id
     public void addGameToCart(Integer id){
@@ -32,14 +32,14 @@ public class MemoryCartRepository {
         }
         else {
             Game gameToBuy = memoryGameRepository.getGameById(id);
-            if (gameToBuy.getHowMany() == 0) {
+            if (gameToBuy.getHowMany() == BigDecimal.ZERO) {
                 System.out.println("Out of stock");
             }
             else{
                 cart.put(gameToBuy.getId(), gameToBuy);
-                gameToBuy.setHowMany(gameToBuy.getHowMany() - 1); //subtract state
-                gameToBuy.setCounter(gameToBuy.getCounter() + 1); //Increase counter
-                total = total + gameToBuy.getPrice(); //View total price
+                gameToBuy.setHowMany(gameToBuy.getHowMany().subtract(BigDecimal.ONE)); //subtract state
+                gameToBuy.setCounter(gameToBuy.getCounter().add(BigDecimal.ONE)); //Increase counter
+                total = total.add(gameToBuy.getPrice()); //View total price
                 cartModel.setTotalPrice(total); //Need parse to 2 decimal places
             }
         }
@@ -56,16 +56,17 @@ public class MemoryCartRepository {
         Game gameRemoveOnCart = memoryGameRepository.getGameById(id);
         //Handle null exception
         if(gameRemoveOnCart == null){
-            cart.remove(id);
+            System.out.println("is null");
+            total = total.subtract(total);
         }
         else {
             //Add game to state if remove
-            gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany() + gameRemoveOnCart.getCounter());
-            double removePrice = gameRemoveOnCart.getPrice() * gameRemoveOnCart.getCounter();
-            cartModel.setTotalPrice(total - removePrice);
+            gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany().add(gameRemoveOnCart.getCounter()));
+            BigDecimal removePrice = gameRemoveOnCart.getPrice().multiply(gameRemoveOnCart.getCounter());
+            total = total.subtract(removePrice);
+            cartModel.setTotalPrice(total);
             cart.remove(id);
-            gameRemoveOnCart.setCounter(0); //reset counter
-            total = cartModel.getTotalPrice();
+            gameRemoveOnCart.setCounter(BigDecimal.ZERO); //reset counter
         }
     }
 

@@ -7,13 +7,13 @@ import java.math.BigDecimal;
 @Component
 public class Cart {
 
-    private double totalPrice;
+    private BigDecimal totalPrice;
 
-    public double getTotalPrice() {
+    public BigDecimal getTotalPrice() {
         return totalPrice;
     }
 
-    public void setTotalPrice(double totalPrice) {
+    public void setTotalPrice(BigDecimal totalPrice) {
         this.totalPrice = totalPrice;
     }
 }
