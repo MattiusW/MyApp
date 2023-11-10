@@ -1,11 +1,13 @@
 package com.mateuszwalczyk.gamex.repository;
 
+import com.mateuszwalczyk.gamex.model.Cart;
 import com.mateuszwalczyk.gamex.model.Game;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 
 
+import java.math.BigDecimal;
 import java.util.Collection;
 import java.util.HashMap;
 
@@ -15,6 +17,9 @@ public class MemoryCartRepository {
     //User cart repository
     @Autowired
     MemoryGameRepository memoryGameRepository;
+    @Autowired
+    Cart cartModel;
+    private double total;
 
     HashMap<Integer, Game> cart = new HashMap<>();;
 
@@ -33,6 +38,8 @@ public class MemoryCartRepository {
                 cart.put(gameToBuy.getId(), gameToBuy);
                 gameToBuy.setHowMany(gameToBuy.getHowMany() - 1); //subtract state
                 gameToBuy.setCounter(gameToBuy.getCounter() + 1); //Increase counter
+                total = total + gameToBuy.getPrice(); //View total price
+                cartModel.setTotalPrice(total);
             }
         }
     }

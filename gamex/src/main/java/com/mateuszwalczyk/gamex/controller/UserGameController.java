@@ -1,5 +1,6 @@
 package com.mateuszwalczyk.gamex.controller;
 
+import com.mateuszwalczyk.gamex.model.Cart;
 import com.mateuszwalczyk.gamex.model.Game;
 import com.mateuszwalczyk.gamex.service.GameService;
 import jakarta.transaction.Transactional;
@@ -17,6 +18,9 @@ public class UserGameController {
     @Autowired
     GameService gameService;
 
+    @Autowired
+    Cart cartModel;
+
     //User game view
     @RequestMapping("/")
     public String userView(Model model){
@@ -29,6 +33,7 @@ public class UserGameController {
     public String viewGamesInCart(Model model){
         List<Game> viewAllGameInCart = gameService.getAllGameFromCart();
         model.addAttribute("viewCart", viewAllGameInCart);
+        model.addAttribute("cart", cartModel);
         return "cartForm";
     }
 
