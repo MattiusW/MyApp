@@ -27,7 +27,8 @@
                         <td th:text="${game.price}"></td>
                         <td th:text="${game.howMany}"></td>
                         <td th:text="${game.counter}"></td>
-                        <td><a th:href="${'/admin/delete/' + game.id}" class="btn btn-danger">Delete</a></td>
+                        <td><a th:href="${'/admin/delete/' + game.id}" class="btn btn-danger">Delete</a>
+                        </td>
                     </tr>
                 </tbody>
             <a href="/admin/add" class="btn btn-primary">Add game</a>

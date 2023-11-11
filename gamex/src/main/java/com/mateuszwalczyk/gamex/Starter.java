@@ -1,6 +1,7 @@
 package com.mateuszwalczyk.gamex;
 
 import com.mateuszwalczyk.gamex.model.Game;
+import com.mateuszwalczyk.gamex.repository.BestsellerRepository;
 import com.mateuszwalczyk.gamex.repository.MemoryCartRepository;
 import com.mateuszwalczyk.gamex.repository.MemoryGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -9,7 +10,8 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class Starter implements CommandLineRunner {
-
+    @Autowired
+    BestsellerRepository bestsellerRepository;
     @Autowired
     Game game;
 
@@ -22,6 +24,8 @@ public class Starter implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception{
         System.out.println(gameRepository);
+        System.out.println("Game to buy: " + cartRepository);
+        cartRepository.addGameToCart(game.getId());
         System.out.println("Game to buy: " + cartRepository);
     }
 }

@@ -7,7 +7,6 @@ import java.util.Set;
 public class Ids {
 
     //Generate new ID to put game in map
-    @Transactional
     static public int getNewID(Set<Integer> existingIds){
         if(existingIds.isEmpty()){
             return 0;
