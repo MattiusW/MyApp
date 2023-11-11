@@ -67,7 +67,6 @@ public class MemoryCartRepository {
             gameRemoveOnCart.setCounter(BigDecimal.ZERO); //reset counter
         }
     }
-
     @Override
     public String toString(){
         return "Cart repository{" + cart + " }";

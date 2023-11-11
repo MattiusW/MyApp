@@ -6,7 +6,6 @@ import java.math.BigDecimal;
 
 @Component
 public class Cart {
-
     private BigDecimal totalPrice;
 
     public BigDecimal getTotalPrice() {
