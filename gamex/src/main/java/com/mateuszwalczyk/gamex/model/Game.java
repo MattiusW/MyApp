@@ -31,6 +31,10 @@ public class Game {
     @Range(min = 1, max = 100)
     private BigDecimal howMany = BigDecimal.ZERO;
 
+    @NotNull
+    @Range(min = 1, max = 5)
+    private BigDecimal rate = BigDecimal.ONE;
+
     private BigDecimal counter = BigDecimal.ZERO;
 
     public Game(){
@@ -82,6 +86,14 @@ public class Game {
 
     public void setCounter(BigDecimal counter){
         this.counter = counter;
+    }
+
+    public BigDecimal getRate(){
+        return rate;
+    }
+
+    public void setRate(BigDecimal rate){
+        this.rate = rate;
     }
 
     @Override

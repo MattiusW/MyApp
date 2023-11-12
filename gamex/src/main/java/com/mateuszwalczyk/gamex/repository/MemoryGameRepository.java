@@ -66,9 +66,9 @@ public class MemoryGameRepository implements InterfaceGameRepository {
     @Override
     @PostConstruct
     public void randomGame(){
-        addGame("The Witcher", new BigDecimal(129.99).setScale(2, RoundingMode.HALF_UP), BigDecimal.ONE);
-        addGame("BloodBorne", new BigDecimal(99.99).setScale(2,RoundingMode.HALF_UP), new BigDecimal(5));
-        addGame("Heroes III", new BigDecimal(59.99).setScale(2, RoundingMode.HALF_UP), new BigDecimal(7));
+        addGame("The Witcher", new BigDecimal(129.99).setScale(2, RoundingMode.HALF_UP), new BigDecimal(7));
+        addGame("BloodBorne", new BigDecimal(99.99).setScale(2,RoundingMode.HALF_UP), BigDecimal.ONE);
+        addGame("Heroes III", new BigDecimal(59.99).setScale(2, RoundingMode.HALF_UP), new BigDecimal(4));
     }
 
 
