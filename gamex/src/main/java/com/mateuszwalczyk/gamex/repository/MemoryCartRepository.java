@@ -60,6 +60,7 @@ public class MemoryCartRepository {
         else {
             //Add game to state if remove
             gameRemoveOnCart.setHowMany(gameRemoveOnCart.getHowMany().add(gameRemoveOnCart.getCounter()));
+            //Subtract the game value from total price in cart
             BigDecimal removePrice = gameRemoveOnCart.getPrice().multiply(gameRemoveOnCart.getCounter());
             total = total.subtract(removePrice);
             cartModel.setTotalPrice(total);

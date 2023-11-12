@@ -1,7 +1,7 @@
 package com.mateuszwalczyk.gamex;
 
 import com.mateuszwalczyk.gamex.model.Game;
-import com.mateuszwalczyk.gamex.repository.BestsellerRepository;
+import com.mateuszwalczyk.gamex.repository.RatingRepository;
 import com.mateuszwalczyk.gamex.repository.MemoryCartRepository;
 import com.mateuszwalczyk.gamex.repository.MemoryGameRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 @Component
 public class Starter implements CommandLineRunner {
     @Autowired
-    BestsellerRepository bestsellerRepository;
+    RatingRepository ratingRepository;
     @Autowired
     Game game;
 

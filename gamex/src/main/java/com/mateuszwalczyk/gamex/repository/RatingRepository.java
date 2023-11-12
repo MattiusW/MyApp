@@ -6,7 +6,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.HashMap;
 @Component
-public class BestsellerRepository {
+public class RatingRepository {
     @Autowired
     Game game;
 
