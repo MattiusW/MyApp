@@ -59,8 +59,6 @@ public class UserGameController {
     @GetMapping("/rate/{id}")
     public String viewRateGame(@PathVariable("id") Integer id, Model model){
         Game game = gameService.getSingleGame(id);
-        System.out.println(game.getRate());
-        System.out.println(game.getId());
         model.addAttribute("setRate", game);
         return "rateForm";
     }
@@ -68,7 +66,6 @@ public class UserGameController {
     @RequestMapping(value = "/rate/{id}/add", method = RequestMethod.POST)
     public String changeRate(@PathVariable("id") Integer id, @ModelAttribute("setRate") Game game){
         Game rateGame = gameService.getSingleGame(id);
-        System.out.println(rateGame.getRate());
         rateGame.setRate(game.getRate());
         return "redirect:/";
     }
