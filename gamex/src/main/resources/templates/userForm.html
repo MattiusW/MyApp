@@ -18,6 +18,7 @@
             <td><b>Title: </b></td>
             <td><b>Price: </b></td>
             <td><b>State: </b></td>
+            <td><b>Rating: </b></td>
         </tr>
         </thead>
         <tbody th:each="game : ${userView}">
@@ -25,7 +26,11 @@
             <td th:text="${game.name}"></td>
             <td th:text="${game.price}"></td>
             <td th:text="${game.howMany}"></td>
-            <td><a th:href="${'/cart/buy/' + game.id}" class="btn btn-success">Buy</a></td>
+            <td th:text="${game.rate}"></td>
+            <td>
+                <a th:href="${'/cart/buy/' + game.id}" class="btn btn-success">Buy</a>
+                <a th:href="${'/cart/rate/' + game.id}" class="btn btn-default">Rate</a>
+            </td>
         </tr>
         </tbody>
         <a href="/cart" class="btn btn-primary">Cart</a>
