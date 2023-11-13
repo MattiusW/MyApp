@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" th:href="@{/webjars/bootstrap/3.3.7-1/css/bootstrap.min.css}"/>
+
+    <script th:scr="@{webjars/jquery/3.2.1/jquery.min.js}"></script>
+    <script th:scr="@{webjars/bootstrap/3.3.7-1/js/bootstrap.min.js}"></script>
+
+    <style>
+        .game-name{
+            font-size: 24px;
+            font-weight: bold;
+            color: red;
+        }
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+    <form class ="form-group" th:object="${setRate}" th:action="@{/rate/}" th:method="post">
+        <div class ="form-group">
+            <h1>Rate game</h1>
+
+            <div class="game-name" th:text="${setRate.name}"></div>
+
+            <label class="control-label">Rate</label>
+            <input type="text" class="form-control" th:field="*{rate}"/>
+            <p th:if="${#fields.hasErrors('rate')}" th:errors="*{rate}"/>
+        </div>
+    </form>
+
+</div>
+</body>
+</html>

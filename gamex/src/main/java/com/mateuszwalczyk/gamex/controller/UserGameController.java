@@ -10,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import java.math.BigDecimal;
 import java.util.List;
 
 @Controller
@@ -49,4 +50,10 @@ public class UserGameController {
         return "redirect:/cart";
     }
 
+    @RequestMapping("/rate/{id}")
+    public String setRateGame(@PathVariable("id") Integer id, Model model){
+        Game game = gameService.getSingleGame(id);
+        model.addAttribute("setRate", game);
+        return "rateForm";
+    }
 }

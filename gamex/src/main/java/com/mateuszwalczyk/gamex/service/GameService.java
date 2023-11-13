@@ -7,6 +7,7 @@ import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -23,6 +24,10 @@ public class GameService {
 
     public List<Game> getAllGameFromMemory(){
         return new ArrayList<>(memoryGameRepository.getAllGames());
+    }
+
+    public Game getSingleGame(Integer id){
+        return memoryGameRepository.getGameById(id);
     }
 
     public Game addNewGameToList(){
@@ -49,5 +54,9 @@ public class GameService {
 
     public void deleteGameOnCart(Integer id){
         memoryCartRepository.removeGame(id);
+    }
+
+    public void settingRate(Integer id, BigDecimal rate){
+        memoryGameRepository.getGameById(id).setRate(rate);
     }
 }
