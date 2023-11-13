@@ -22,7 +22,7 @@
 
 <div class="container">
 
-    <form class ="form-group" th:object="${setRate}" th:action="@{/rate/{id}/add}" th:method="post">
+    <form class ="form-group" th:object="${setRate}" th:action="@{/rate/{id}/add(id=${id})}" th:method="post">
         <div class ="form-group">
             <h1>Rate game</h1>
 
