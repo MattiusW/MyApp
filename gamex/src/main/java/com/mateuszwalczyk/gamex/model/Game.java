@@ -33,7 +33,7 @@ public class Game {
 
     @NotNull
     @Range(min = 1, max = 5)
-    private BigDecimal rate = BigDecimal.ONE;
+    private int rate = 1;
 
     private BigDecimal counter = BigDecimal.ZERO;
 
@@ -88,11 +88,11 @@ public class Game {
         this.counter = counter;
     }
 
-    public BigDecimal getRate(){
+    public int getRate(){
         return rate;
     }
 
-    public void setRate(BigDecimal rate){
+    public void setRate(int rate){
         this.rate = rate;
     }
 

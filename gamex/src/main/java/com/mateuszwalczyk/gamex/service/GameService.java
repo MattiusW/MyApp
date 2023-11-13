@@ -10,6 +10,7 @@ import org.springframework.stereotype.Service;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 //Indirect layer to connect between Backend and Frontend
@@ -56,7 +57,4 @@ public class GameService {
         memoryCartRepository.removeGame(id);
     }
 
-    public void settingRate(Integer id, BigDecimal rate){
-        memoryGameRepository.getGameById(id).setRate(rate);
-    }
 }

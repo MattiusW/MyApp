@@ -22,16 +22,17 @@
 
 <div class="container">
 
-    <form class ="form-group" th:object="${setRate}" th:action="@{/rate/}" th:method="post">
+    <form class ="form-group" th:object="${setRate}" th:action="@{/rate/{id}/add}" th:method="post">
         <div class ="form-group">
             <h1>Rate game</h1>
 
             <div class="game-name" th:text="${setRate.name}"></div>
 
             <label class="control-label">Rate</label>
-            <input type="text" class="form-control" th:field="*{rate}"/>
+            <input type="number" class="form-control" th:field="*{rate}" step="1" min="1" max="5"/>
             <p th:if="${#fields.hasErrors('rate')}" th:errors="*{rate}"/>
         </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
     </form>
 
 </div>
