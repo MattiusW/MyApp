@@ -2,20 +2,14 @@ package com.mateuszwalczyk.gamex.controller;
 
 import com.mateuszwalczyk.gamex.model.Cart;
 import com.mateuszwalczyk.gamex.model.Game;
-import com.mateuszwalczyk.gamex.repository.MemoryGameRepository;
 import com.mateuszwalczyk.gamex.service.GameService;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.math.BigDecimal;
 import java.util.List;
-import java.util.Map;
+
 
 @Controller
 public class UserGameController {

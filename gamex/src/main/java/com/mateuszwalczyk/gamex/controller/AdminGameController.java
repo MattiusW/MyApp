@@ -73,7 +73,7 @@ public class AdminGameController {
 
     //Handle wrong value
     @RequestMapping(value = "/admin/edit/{id}/add", method = RequestMethod.POST)
-    public String sendEditGame(@PathVariable("id") Integer id,
+    public String sentEditGame(@PathVariable("id") Integer id,
                                @Valid @ModelAttribute("editGame") Game game, BindingResult bindingResult,
                                Model model){
         if(bindingResult.hasErrors()){

@@ -1,7 +1,5 @@
 package com.mateuszwalczyk.gamex.utils;
 
-import jakarta.transaction.Transactional;
-
 import java.util.Set;
 
 public class Ids {
