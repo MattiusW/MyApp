@@ -71,6 +71,24 @@ public class AdminGameController {
         return "editForm";
     }
 
-
+    //Handle wrong value
+    @RequestMapping(value = "/admin/edit/{id}/add", method = RequestMethod.POST)
+    public String sendEditGame(@PathVariable("id") Integer id,
+                               @Valid @ModelAttribute("editGame") Game game, BindingResult bindingResult,
+                               Model model){
+        if(bindingResult.hasErrors()){
+            bindingResult.getAllErrors().forEach(error ->
+                    System.out.println(error.getObjectName() + " " + error.getDefaultMessage()));
+            model.addAttribute("editGame", game);
+            return "editForm";
+        }
+        else {
+            Game editGame = gameService.getSingleGame(id);
+            editGame.setName(game.getName());
+            editGame.setPrice(game.getPrice());
+            editGame.setHowMany(game.getHowMany());
+            return "redirect:/admin/games";
+        }
+    }
 
 }

@@ -12,7 +12,7 @@
 <body>
 <div class="container">
 
-    <form class ="form-group" th:object="${editGame}" th:action="@{/admin/edit/}" th:method="post">
+    <form class ="form-group" th:object="${editGame}" th:action="@{/admin/edit/{id}/add(id=${id})}" th:method="post">
 
         <div class ="form-group">
             <h1>Edit game</h1>
