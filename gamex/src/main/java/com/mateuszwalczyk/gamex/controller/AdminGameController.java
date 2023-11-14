@@ -63,6 +63,14 @@ public class AdminGameController {
         return "redirect:/admin/games";
     }
 
+    //Edit game from list
+    @RequestMapping("/admin/edit/{id}")
+    public String editGame(@PathVariable("id") Integer id, Model model){
+        Game game = gameService.getSingleGame(id);
+        model.addAttribute("editGame", game);
+        return "editForm";
+    }
+
 
 
 }
