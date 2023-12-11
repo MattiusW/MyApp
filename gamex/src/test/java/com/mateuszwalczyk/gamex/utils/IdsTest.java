@@ -22,7 +22,8 @@ public class IdsTest {
         Set<Integer> sample = new HashSet<>();
         sample.add(5);
         sample.add(6);
+        sample.add(7);
         int result = Ids.getNewID(sample);
-        assertEquals(7, result);
+        assertEquals(8, result);
     }
 }
